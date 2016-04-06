@@ -4,7 +4,12 @@
 import React from 'react'
 import ReactDOM  from 'react-dom';
 import MyRouter from './config/router'
+import {Link} from 'react-router';
 ReactDOM.render(
-    <MyRouter/>,
+    <div>
+        <Link  to="/profile" >afd</Link>
+        <MyRouter/>
+    </div>
+    ,
     document.getElementById('app')
 )

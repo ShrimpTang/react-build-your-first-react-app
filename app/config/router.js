@@ -4,16 +4,24 @@
 import React from 'react'
 import Main from '../components/Main'
 import Home from '../components/Home'
-import { Router, Route, IndexRoute,browserHistory} from 'react-router'
+import Profile from '../components/Profile'
+import { Router, Route, IndexRoute,browserHistory,hashHistory } from 'react-router'
 export default class MyRouter extends React.Component {
-    render(){
+
+    render() {
         return (
-            <Router history={browserHistory}>
-            <Route path="/" component={Main}>
-                <IndexRoute component={Home}/>
-            </Route>
+            <Router history={hashHistory }>
+                <Route path="/" component={Main}>
+                    <Route name="profile" path="/profile" component={Profile}/>
+                    <IndexRoute component={Home}/>
+                </Route>
             </Router>
-       )
+        )
     }
 
 }
+MyRouter.contextTypes = {
+    router: function () {
+        return React.PropTypes.func.isRequired;
+    }
+};
